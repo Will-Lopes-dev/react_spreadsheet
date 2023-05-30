@@ -1,0 +1,47 @@
+
+h1 {
+    margin-left: 50px;
+}
+
+fieldset {
+    background-color: rgb(189, 241, 241);
+    max-width: 400px ;
+    margin-left: 20px;
+    padding: 15px ;
+    
+}
+
+
+form input { 
+    border: 0;
+    outline: 0;
+    padding: 10px 0 10px 30px;
+    letter-spacing: 1px;
+    width: 100%;
+    margin-bottom: 15px;
+    margin-top: 5px;
+    border-radius: 15px; cursor: pointer;
+}
+
+input[type="submit"], button {
+    width: 150px;
+    margin: 15px 25%;
+    box-shadow: 0 0 5px;
+    transition: ease 0.5s;
+    padding-left: 0;
+}
+
+input[type="submit"]:hover {
+    background-color: rgb(83, 224, 224);
+    color: white;
+}
+
+input[type="file"] {
+    border: 1px solid #ccc;
+    background-color: #fff;
+}
+
+
+label { 
+    font-weight: bold;
+}

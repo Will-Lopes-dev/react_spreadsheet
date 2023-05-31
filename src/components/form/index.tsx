@@ -117,15 +117,27 @@ export const Form = () => {
   const handleSubmitFile = async (e: React.MouseEvent<HTMLButtonElement>): Promise<void> => {
     e.preventDefault();
   
-    if (selectedFile) {
-      const fileData = await readFile(selectedFile);
-      if (fileData) {
-        const updatedData = [...fileData, { name, email, celular, cpf }];
-        saveSpreadSheet(updatedData);
-      }
-    } else {
-      saveSpreadSheet([{ name, email, celular, cpf }]);
+    if (tableData.length === 0) {
+      alert('A tabela está vazia!');
+      return;
     }
+  
+    const headers = Object.keys(tableData[0]);
+    const rows = tableData.map((row) => Object.values(row));
+  
+    const worksheet = XLSX.utils.aoa_to_sheet([headers, ...rows]);
+    const workbook = XLSX.utils.book_new();
+    XLSX.utils.book_append_sheet(workbook, worksheet, 'Dados do Formulário');
+  
+    const excelBuffer = XLSX.write(workbook, {
+      bookType: 'xlsx',
+      type: 'array',
+    });
+    const excelData = new Blob([excelBuffer], {
+      type: 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet',
+    });
+  
+    saveAs(excelData, 'formulario.xlsx');
   };
   
 

@@ -73,8 +73,8 @@ td, th {
     font-size: 20px;
 }
 
-table tbody {
+table tbody{
     max-height: 200px;
-    overflow: auto;
+    overflow-y: scroll;
     background-color: aqua;
 }

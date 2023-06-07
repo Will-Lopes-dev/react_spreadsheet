@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from 'react';
-import style from './style.module.css'
+import styles from './style.module.css'
 import IMask from 'imask';
 import * as XLSX from 'xlsx';
 import { saveAs } from 'file-saver';
@@ -184,9 +184,9 @@ export const Form = () => {
   };
 
   return (
-    <div className={style.container}>
+    <div className={styles.container}>
       <>
-        <div className={style.campLeft}>
+        <div className={styles.campLeft}>
           <h1>Formulário</h1>
             <form className='container' onSubmit={handleSubmit}>
               <fieldset>
@@ -268,7 +268,7 @@ export const Form = () => {
                     <th>CPF</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody className={styles.tbody}>
                   {tableData.map((row, index) => (
                     <tr key={index}>
                       <td>{row.name}</td>
@@ -283,12 +283,12 @@ export const Form = () => {
               <button 
                 type='button' 
                 onClick={handleSaveTableToExcel} 
-                className={style.tableButtons}
+                className={styles.tableButtons}
               >Adicionar ao arquivo</button>
               <button 
                 type="button" 
                 onClick={handleSubmitFile} 
-                className={style.tableButtons}
+                className={styles.tableButtons}
               >Salvar em excel</button>
             </div>
           )}
